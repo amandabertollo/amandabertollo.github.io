@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Neuroscience Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .neurons-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+        }
+
+        .neuron-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #3498db;
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: #2980b9;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            margin-top: 80px;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(155, 89, 182, 0.05) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        section {
+            margin: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2:before {
+            content: '';
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(180deg, #3498db 0%, #9b59b6 100%);
+            border-radius: 2px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 2px solid #e8ecef;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.15);
+            border-color: #3498db;
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e8ecef;
+        }
+
+        .card a {
+            color: #3498db;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .card a:hover {
+            color: #9b59b6;
+            transform: translateX(5px);
+        }
+
+        .list-item {
+            background: #ffffff;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .list-item:hover {
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
+            transform: translateX(10px);
+        }
+
+        .list-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .list-item p {
+            color: #555;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .portuguese-tag {
+            background: rgba(46, 204, 113, 0.1);
+            color: #27ae60;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            margin-top: 4rem;
+            border-top: 2px solid #e8ecef;
+            color: #7f8c8d;
+        }
+
+        .lattes-sync {
+            background: rgba(155, 89, 182, 0.05);
+            border: 2px solid rgba(155, 89, 182, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .lattes-sync p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .lattes-sync .sync-info {
+            color: #9b59b6;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(155, 89, 182, 0.05) 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="neurons-bg" id="neurons"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#websites">Websites</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header id="home">
+            <div class="hero">
+                <h1>Your Name</h1>
+                <p class="subtitle">PhD Student in Neuroscience</p>
+                <p class="bio">
+                    Dedicated researcher exploring complex neural mechanisms, 
+                    with a focus on [your specific area]. Combining computational neuroscience, 
+                    data analysis, and web development to advance scientific knowledge and 
+                    make research accessible to broader audiences.
+                </p>
+            </div>
+        </header>
+
+        <section id="publications">
+            <h2>Scientific Publications</h2>
+            
+            <div class="lattes-sync">
+                <p>📊 This portfolio is synchronized with Currículo Lattes</p>
+                <p class="sync-info">Last update: [Date of last synchronization]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Scientific Article Title 1</h3>
+                <p><strong>Authors:</strong> Your Name, Co-author A, Co-author B</p>
+                <p><strong>Journal:</strong> Journal of Neuroscience</p>
+                <p><strong>Year:</strong> 2024 | <strong>DOI:</strong> 10.1234/example</p>
+                <p style="margin-top: 1rem;">Brief description of the study, methodology, and main findings related to neuroplasticity and neural circuits.</p>
+                <a href="#">View publication →</a>
+            </div>
+
+            <div class="list-item">
+                <h3>Scientific Article Title 2</h3>
+                <p><strong>Authors:</strong> Your Name, Co-author C, Co-author D</p>
+                <p><strong>Journal:</strong> Nature Neuroscience</p>
+                <p><strong>Year:</strong> 2023 | <strong>DOI:</strong> 10.1234/example2</p>
+                <p style="margin-top: 1rem;">Research summary on molecular mechanisms and their implications for understanding cognitive processes.</p>
+                <a href="#">View publication →</a>
+            </div>
+
+            <div class="list-item">
+                <h3>Scientific Article Title 3</h3>
+                <p><strong>Authors:</strong> Co-author E, Your Name, Co-author F</p>
+                <p><strong>Journal:</strong> Cerebral Cortex</p>
+                <p><strong>Year:</strong> 2023 | <strong>DOI:</strong> 10.1234/example3</p>
+                <p style="margin-top: 1rem;">Study on neural connectivity and its relationships with behavior and cognition.</p>
+                <a href="#">View publication →</a>
+            </div>
+        </section>
+
+        <section id="websites">
+            <h2>Web Development Projects</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Science Communication Portal</h3>
+                    <p>Educational website in Portuguese for disseminating neuroscience to the general public.</p>
+                    <div>
+                        <span class="tag portuguese-tag">Portuguese</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <a href="#">Visit website →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Neuroscience Laboratory Website</h3>
+                    <p>Institutional website for the laboratory with information about research, team, and publications.</p>
+                    <div>
+                        <span class="tag portuguese-tag">Portuguese</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                    <a href="#">Visit website →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Data Analysis Platform</h3>
+                    <p>Web tool for analysis and visualization of neuroscientific data with multilingual support.</p>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">D3.js</span>
+                    </div>
+                    <a href="#">Visit website →</a>
+                </div>
+
+                <div class="card">
+                    <h3>Neuroscience Blog</h3>
+                    <p>Personal blog in Portuguese with articles and reflections on neuroscience, research, and academic career.</p>
+                    <div>
+                        <span class="tag portuguese-tag">Portuguese</span>
+                        <span class="tag">WordPress</span>
+                        <span class="tag">PHP</span>
+                    </div>
+                    <a href="#">Visit website →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2>Additional Activities</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Lectures & Presentations</h3>
+                    <p>Presentations at national and international neuroscience conferences.</p>
+                    <p class="meta">Latest: Brazilian Neuroscience Congress 2024</p>
+                </div>
+
+                <div class="card">
+                    <h3>Mentoring & Supervision</h3>
+                    <p>Supervising undergraduate and master's students in research projects.</p>
+                    <p class="meta">5+ students mentored</p>
+                </div>
+
+                <div class="card">
+                    <h3>Peer Review</h3>
+                    <p>Reviewer for international scientific journals in neuroscience.</p>
+                    <p class="meta">10+ articles reviewed</p>
+                </div>
+
+                <div class="card">
+                    <h3>Teaching</h3>
+                    <p>Instructor for classes and workshops on neuroscience, scientific methodology, and data analysis.</p>
+                    <p class="meta">Courses: Neuroanatomy, Computational Neuroscience</p>
+                </div>
+
+                <div class="card">
+                    <h3>Outreach & Extension</h3>
+                    <p>Participation in outreach projects for science communication in public schools.</p>
+                    <p class="meta">Project: Brain in Schools</p>
+                </div>
+
+                <div class="card">
+                    <h3>International Collaborations</h3>
+                    <p>Collaborations with international laboratories on cognitive neuroscience projects.</p>
+                    <p class="meta">Institutions: MIT, Oxford, Max Planck</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <h3>Get in Touch</h3>
+                <p>📧 Email: your.email@university.br</p>
+                <p>🔬 Lattes: <a href="#">Currículo Lattes Link</a></p>
+                <p>📚 Google Scholar: <a href="#">Google Scholar Profile</a></p>
+                <p>💼 LinkedIn: <a href="#">Your profile</a></p>
+                <p>🐙 GitHub: <a href="#">Your projects</a></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Your Name - All rights reserved</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Developed with dedication to science and technology</p>
+    </footer>
+
+    <script>
+        // Create subtle neural network background
+        const neuronsContainer = document.getElementById('neurons');
+        for (let i = 0; i < 30; i++) {
+            const node = document.createElement('div');
+            node.className = 'neuron-node';
+            node.style.left = Math.random() * 100 + '%';
+            node.style.top = Math.random() * 100 + '%';
+            node.style.animationDelay = Math.random() * 4 + 's';
+            neuronsContainer.appendChild(node);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
