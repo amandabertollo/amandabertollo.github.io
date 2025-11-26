@@ -399,10 +399,9 @@
         <section id="publications">
             <h2>Scientific Publications</h2>
             
-            <!-- Lattes box without citation numbers -->
+            <!-- Lattes box WITHOUT citation numbers -->
             <div class="lattes-sync">
                 <p>📊 This portfolio is synchronized with Currículo Lattes</p>
-                <!-- Customize this date manually, no citation count -->
                 <p class="sync-info">Last update: [DD/MM/YYYY]</p>
             </div>
 
@@ -605,69 +604,4 @@
                     <p class="meta">5+ students mentored</p>
                 </div>
 
-                <div class="card">
-                    <h3>Peer Review</h3>
-                    <p>Reviewer for international scientific journals in neuroscience.</p>
-                    <p class="meta">10+ articles reviewed</p>
-                </div>
-
-                <div class="card">
-                    <h3>Teaching</h3>
-                    <p>Instructor for classes and workshops on neuroscience, scientific methodology, and data analysis.</p>
-                    <p class="meta">Courses: Neuroanatomy, Computational Neuroscience</p>
-                </div>
-
-                <div class="card">
-                    <h3>Outreach & Extension</h3>
-                    <p>Participation in outreach projects for science communication in public schools.</p>
-                    <p class="meta">Project: Brain in Schools</p>
-                </div>
-
-                <div class="card">
-                    <h3>International Collaborations</h3>
-                    <p>Collaborations with international laboratories on cognitive neuroscience projects.</p>
-                    <p class="meta">Institutions: MIT, Oxford, Max Planck</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <h3>Get in Touch</h3>
-                <p>📧 Email: amandagollo@gmail.com</p>
-                <p>🔬 Lattes: <a href="http://lattes.cnpq.br/4584759826189110">Currículo Lattes Link</a></p>
-                <p>📚 Google Scholar: <a href="https://scholar.google.com/citations?user=o_uMprMAAAAJ&hl=pt-BR">Google Scholar Profile</a></p>
-                <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/amanda-gollo-bertollo-381ba9240/">Your profile</a></p>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>© 2024 Your Name - All rights reserved</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Developed with dedication to science and technology</p>
-    </footer>
-
-    <script>
-        // Create subtle neural network background
-        const neuronsContainer = document.getElementById('neurons');
-        for (let i = 0; i < 30; i++) {
-            const node = document.createElement('div');
-            node.className = 'neuron-node';
-            node.style.left = Math.random() * 100 + '%';
-            node.style.top = Math.random() * 100 + '%';
-            node.style.animationDelay = Math.random() * 4 + 's';
-            neuronsContainer.appendChild(node);
-        }
-
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-    </script>
-</body>
-</html>
+                <div
