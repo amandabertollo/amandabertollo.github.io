@@ -1,493 +1,402 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Neuroscience Research</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<div class="container">
+        <header id="home">
+            <div class="hero">
+[cite_start]                <h1>Amanda Gollo Bertollo [cite: 1, 11]</h1>
+[cite_start]                <p class="subtitle">Nurse, Master in Biomedical Sciences, and PhD Student in Neuroscience [cite: 4, 5]</p>
+                <p class="bio">
+[cite_start]                    Dedicated researcher focusing on **Translational, Clinical, and Epidemiological Neuroscience** and **Biological and Clinical Studies in Human Pathologies**[cite: 6]. [cite_start]Specialized in Nursing in Primary Care with Emphasis on the Family Health Strategy[cite: 4]. [cite_start]Her research work concentrates on topics such as **COVID-19**, **depression**, and **medicinal plants**, investigating the neurobiological mechanisms of psychiatric disorders[cite: 7]. [cite_start]She is also an associate of the Brazilian Society of Neuroscience and Behavior (SBNEC)[cite: 7].
+                </p>
+            </div>
+        </header>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #2c3e50;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        <section id="publications">
+            <h2>Scientific Publications 🧠</h2>
+                
+                <div class="highlight-box">
+                    <h3>🏆 Awards and Honors</h3>
+                    [cite_start]<p><strong>Best Poster Award (2024):</strong> "Therapeutic potential of *Centella asiatica* in the intergenerational effect of childhood stress on depressive-like behaviors" - The 4th International Electronic Conference on Brain Sciences[cite: 617, 622].</p>
+                    [cite_start]<p><strong>Honorable Mention (2023):</strong> "Efeito do estresse na infância sobre comportamentos depressivos na vida adulta" - Expo Cannabis[cite: 623, 624].</p>
+                </div>
 
-        .neurons-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.03;
-        }
+                <div style="margin-bottom: 2rem;">
+                    <h3>Complete Articles Published in Periodicals</h3>
+                </div>
 
-        .neuron-node {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 50%;
-            animation: pulse 4s infinite;
-        }
+            <div class="list-item">
+                <h3>Hypothalamus-pituitary-adrenal and gut-brain axes in biological interaction pathway of the depression</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; SANTOS, C. F.; BAGATINI, M. D.; [cite_start]IGNACIO, Z. M. [cite: 644]</p>
+                <p><strong>Journal:</strong> Frontiers in Neuroscience JCR, V. 19, p. [cite_start]1 [cite: 645]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 645]</p>
+            </div>
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.5); opacity: 1; }
-        }
+            <div class="list-item">
+                <h3>Neurobiological Relationships Between Neurodevelopmental Disorders and Mood Disorders</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; PUNTEL, CAMILA FERREIRA; DA SILVA, BRUNNA VARELA; MARTINS, MARCIO; BAGATINI, MARGARETE DULCE; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 647]</p>
+                <p><strong>Journal:</strong> BRAIN SCIENCES JCR, v. 15, p. [cite_start]307 [cite: 648, 649]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 648]</p>
+            </div>
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
+            <div class="list-item">
+                <h3>Biological rhythms and psychiatric symptoms in COVID-19 individuals: a cross-sectional multicentric study</h3>
+                <p><strong>Authors:</strong> MATTIA-MAXIMIANO, BRENDA CAROLINA; MIORANZA-KOPPE, MARIANA; SILVA, RITELE H.; ARENT, CAMILA O.; AMBONI, GRAZIELA; PEDRO, LUCAS C.; GOLLO BERTOLLO, AMANDA; DELLAZERI CORTEZ, ARTHUR; DE MEDEIROS, JESIEL; PEDROTTI MOREIRA, FERNANDA; QUEVEDO, JOÃO; CERETTA, LUCIANE B.; IGNACIO, ZULEIDE MARIA; AZEVEDO CARDOSO, TAIANE; [cite_start]ZILLI REUS, GISLAINE [cite: 650, 651, 652]</p>
+                <p><strong>Journal:</strong> BIOLOGICAL RHYTHM RESEARCH (ONLINE) JCR, V. 56, p. [cite_start]291-304 [cite: 653]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 653]</p>
+            </div>
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #3498db;
-            transition: width 0.3s;
-        }
-
-        nav a:hover {
-            color: #2980b9;
-        }
-
-        nav a:hover:after {
-            width: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            margin-top: 80px;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(155, 89, 182, 0.05) 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid rgba(52, 152, 219, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            margin-bottom: 1rem;
-        }
-
-        .bio {
-            max-width: 700px;
-            margin: 0 auto;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        section {
-            margin: 4rem 0;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        h2:before {
-            content: '';
-            width: 4px;
-            height: 40px;
-            background: linear-gradient(180deg, #3498db 0%, #9b59b6 100%);
-            border-radius: 2px;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: #ffffff;
-            border: 2px solid #e8ecef;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.15);
-            border-color: #3498db;
-        }
-
-        .card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: #555;
-            margin-bottom: 0.5rem;
-        }
-
-        .card .meta {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e8ecef;
-        }
-
-        .card a {
-            color: #3498db;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1rem;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .card a:hover {
-            color: #9b59b6;
-            transform: translateX(5px);
-        }
-
-        .list-item {
-            background: #ffffff;
-            border-left: 4px solid #3498db;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .list-item:hover {
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
-            transform: translateX(10px);
-        }
-
-        .list-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .list-item p {
-            color: #555;
-        }
-
-        .tag {
-            display: inline-block;
-            background: rgba(52, 152, 219, 0.1);
-            color: #3498db;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-
-        .portuguese-tag {
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            margin-top: 4rem;
-            border-top: 2px solid #e8ecef;
-            color: #7f8c8d;
-        }
-
-        .lattes-sync {
-            background: rgba(155, 89, 182, 0.05);
-            border: 2px solid rgba(155, 89, 182, 0.2);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .lattes-sync p {
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .lattes-sync .sync-info {
-            color: #9b59b6;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(155, 89, 182, 0.05) 100%);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid #3498db;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="neurons-bg" id="neurons"></div>
-
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#websites">Websites</a></li>
-            <li><a href="#activities">Activities</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <header id="home">
-            <div class="hero">
-                <h1>Amanda Gollo Bertollo</h1>
-                <p class="subtitle">PhD Student in Neuroscience</p>
-                <p class="bio">
-                    Dedicated researcher exploring complex neural mechanisms, 
-                    with a focus on [your specific area]. Combining computational neuroscience, 
-                    data analysis, and web development to advance scientific knowledge and 
-                    make research accessible to broader audiences.
-                </p>
-            </div>
-        </header>
-
-        <section id="publications">
-            <h2>Scientific Publications</h2>
+            <div class="list-item">
+                <h3>Habits and vulnerability or resilience to stress Impact on depressive disorders</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; CAPITANIO, MILENE ZANELLA; SCHUH, LAYSA ANACLETO; PRADELLA, NANDARA; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 654, 655]</p>
+                <p><strong>Journal:</strong> BEHAVIOURAL BRAIN RESEARCH JCR, v. 490, p. [cite_start]115630 [cite: 656]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 656]</p>
+            </div>
             
-            <div class="list-item">
-                <h3>Scientific Article Title 1</h3>
-                <p><strong>Authors:</strong> Your Name, Co-author A, Co-author B</p>
-                <p><strong>Journal:</strong> Journal of Neuroscience</p>
-                <p><strong>Year:</strong> 2024 | <strong>DOI:</strong> 10.1234/example</p>
-                <p style="margin-top: 1rem;">Brief description of the study, methodology, and main findings related to neuroplasticity and neural circuits.</p>
-                <a href="#">View publication →</a>
-            </div>
+            <div class="list-item">
+                <h3>Antidepressant-like and neuroprotective effect of hydroalcoholic extract of *Aloysia citriodora* in animals subjected to childhood stress</h3>
+[cite_start]                <p><strong>Authors:</strong> GOLLO BERTOLLO, AMANDA [cite: 657, 661]</p>
+                <p><strong>Journal:</strong> MOLECULAR BIOLOGY REPORTS JCR, v. 52, p. [cite_start]1-17 [cite: 662]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 662]</p>
+            </div>
 
-            <div class="list-item">
-                <h3>Scientific Article Title 2</h3>
-                <p><strong>Authors:</strong> Your Name, Co-author C, Co-author D</p>
-                <p><strong>Journal:</strong> Nature Neuroscience</p>
-                <p><strong>Year:</strong> 2023 | <strong>DOI:</strong> 10.1234/example2</p>
-                <p style="margin-top: 1rem;">Research summary on molecular mechanisms and their implications for understanding cognitive processes.</p>
-                <a href="#">View publication →</a>
-            </div>
+            <div class="list-item">
+                <h3>The contribution of mTOR to the immunopathology of bipolar disorder</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; JORDAN, VINICIUS ANDRADE; CAPITANIO, MILENE ZANELLA; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 663]</p>
+                <p><strong>Journal:</strong> JOURNAL OF NEUROIMMUNOLOGY JCR, v. 409, p. [cite_start]578744 [cite: 664]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 664]</p>
+            </div>
 
-            <div class="list-item">
-                <h3>Scientific Article Title 3</h3>
-                <p><strong>Authors:</strong> Co-author E, Your Name, Co-author F</p>
-                <p><strong>Journal:</strong> Cerebral Cortex</p>
-                <p><strong>Year:</strong> 2023 | <strong>DOI:</strong> 10.1234/example3</p>
-                <p style="margin-top: 1rem;">Study on neural connectivity and its relationships with behavior and cognition.</p>
-                <a href="#">View publication →</a>
-            </div>
-        </section>
+            <div class="list-item">
+                <h3>Pharmacogenetics and the Response to Antidepressants in Major Depressive Disorder</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; MOCELIN, RICIERI; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 665]</p>
+                <p><strong>Journal:</strong> PHARMACEUTICALS JCR, v. 18, p. [cite_start]1360 [cite: 666]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 666]</p>
+            </div>
 
-        <section id="websites">
-            <h2>Web Development Projects</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Science Communication Portal</h3>
-                    <p>Educational website in Portuguese for disseminating neuroscience to the general public.</p>
-                    <div>
-                        <span class="tag portuguese-tag">Portuguese</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <a href="#">Visit website →</a>
+            <div class="list-item">
+                <h3>Caspases and brain-derived Neurotrophic Factor Levels and their Correlations with Psychiatric Symptoms in post-COVID-19</h3>
+                <p><strong>Authors:</strong> BROSEGHINI, LIA D. R.; ARENT, CAMILA O.; PEDRO, LUCAS C. DOS SANTOS, LAISA N. NIERO, FLAVIA S.; MONDO, GABRIEL S.; BERTOLLO, AMANDA G.; MINGOTI, MAIQUELI EDUARDA D.; MATHIAS, KHYANI; DANIELSKI, LUCINEIA G.; BARICHELLO, TATIANA; QUEVEDO, JOÃO; CERETTA, LUCIANE B.; IGNACIO, ZULEIDE MARIA; PETRONILHO, FABRICIA; [cite_start]REUS, GISLAINE Z. [cite: 668, 669, 670]</p>
+                <p><strong>Journal:</strong> Neurotoxicity Research JCR, V. 43, p. [cite_start]1 [cite: 671]</p>
+[cite_start]                <p><strong>Year:</strong> 2025 [cite: 671]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Early Life Stress and Major Depressive Disorder-An Update on Molecular Mechanisms and Synaptic Impairments</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; GALVAN, A. C.; DALLAGNOL, C.; CORTEZ, A. D.; [cite_start]IGNACIO, Z. M. [cite: 673, 674]</p>
+                <p><strong>Journal:</strong> MOLECULAR NEUROBIOLOGY JCR, p. [cite_start]1 [cite: 675]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 675]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Peripheral biomarkers as a predictor of poor prognosis in severe cases of COVID-19</h3>
+                <p><strong>Authors:</strong> DA SILVA, GILNEI B.; MANICA, DAIANE; DA SILVA, ALANA P.; VALCARENGHI, EDUARDA; DONASSOLO, SABINÉ R.; KOSVOSKI, GREICY C.; MINGOTI, MAIQUELI E.D.; GAVIOLI, JULLYE; CASSOL, JOANA V.; HANAUER, MARCELI C.; HELLMANN, MARIELLY B.; MARAFON, FILOMENA; BERTOLLO, AMANDA G.; DE MEDEIROS, JESIEL; CORTEZ, ARTHUR D.; REUS, GISLAINE Z.; DE OLIVEIRA, GABRIELA G.; IGNACIO, ZULEIDE M.; [cite_start]BAGATINI, MARGARETE D. [cite: 676, 677, 678, 679]</p>
+                <p><strong>Journal:</strong> AMERICAN JOURNAL OF THE MEDICAL SCIENCES JCR, V. 1, p. [cite_start]1 [cite: 680]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 680]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Dementia and depression: Biological connections with amyloid $\beta$ protein</h3>
+                <p><strong>Authors:</strong> DOS SANTOS, HELAMA MORAES; BERTOLLO, A. G.; MINGOTI, M. E. D.; GROLLI, ROBERTA EDUARDA; KREUZ, KELLI MARIA; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 686]</p>
+                <p><strong>Journal:</strong> BASIC & CLINICAL PHARMACOLOGY & TOXICOLOGY ONLINE JCR, V. 134, p. [cite_start]1-11 [cite: 687, 688]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 687]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Hydroalcoholic Extract of *Centella asiatica* and Madecassic Acid Reverse Depressive-Like Behaviors, Inflammation and Oxidative Stress in Adult Rats Submitted to Stress in Early Life</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; MINGOTI, MAIQUELI EDUARDA DAMA; DE MEDEIROS, JESIEL; DA SILVA, GILNEI BRUNO; CAPOANI, GIOVANA TAMARA; LINDEMANN, HELOISA; CASSOL, JOANA; MANICA, DAIANE; DE OLIVEIRA, TACIO; GARCEZ, MICHELLE LIMA; BAGATINI, MARGARETÉ DULCE; BOHNEN, LILIAN CAROLINE; JUNIOR, WALTER ANTÔNIO ROMAN; [cite_start]IGNACIO, ZULEIDE MÁRIA [cite: 689, 690, 691]</p>
+                <p><strong>Journal:</strong> MOLECULAR NEUROBIOLOGY JCR, v. 1, p. [cite_start]1 [cite: 693, 694, 695]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 693]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Melatonin’s Impact on Cytokine Storm and Modulation of Purinergic Receptors for COVID-19 Prognosis: A Mental Health Perspective</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; DALAZEN, JOANA BORTOLANZA; CASSOL, JOANA VITORIA; HELLMANN, MARIELLY BRAUN; MOTA, TIAGO LIBERIO; IGNACIO, ZULEIDE MARIA; [cite_start]BAGATINI, MARGARETE DULCE [cite: 696, 697]</p>
+                <p><strong>Journal:</strong> Journal of Molecular Neuroscience JCR, V. 74, p. [cite_start]113 [cite: 698]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 698]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Neurobiological Mechanisms in the Kynurenine Pathway and Major Depressive Disorder</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; MINGOTI, M. E. D.; [cite_start]IGNACIO, Z. M. [cite: 699]</p>
+                <p><strong>Journal:</strong> REVIEWS IN THE NEUROSCIENCES JCR, V. 35, p. [cite_start]1-19 [cite: 700]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 700]</p>
+            </div>
+            
+            <div class="list-item">
+                <h3>Quetiapine effect on depressive-like behaviors, oxidative balance, and inflammation in serum of rats submitted to chronic stress</h3>
+                <p><strong>Authors:</strong> GROLLI, R. E.; BERTOLLO, A. G.; BEHENCK, J. P.; BORBA, L. A.; PLISSARI, M. E.; SOARES, S. J. B.; MANICA, A.; JOAQUIM, L. S.; PETRONILHO, F.; QUEVEDO, J.; BAGATINI, M. D.; REUS, G. Z.; [cite_start]IGNACIO, Z. M. [cite: 706, 707, 708]</p>
+                <p><strong>Journal:</strong> NAUNYN-SCHMIEDEBERGS ARCHIVES OF PHARMACOLOGY JCR, v. 396, p. [cite_start]1423-1433 [cite: 709]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 709]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Impact of COVID-19 on anxiety and depression biopsychosocial factors</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; LEITE GALVAN, AGATHA CARINA; DAMA MINGOTI, MAIQUELİ EDUARDA; DALLAGNOL, CLAUDIA; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 710]</p>
+                <p><strong>Journal:</strong> CNS & Neurological Disorders-Drug Targets JCR, v. 22, p. [cite_start]1-12 [cite: 711, 712]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 712]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>ABO Blood Type and Metabolic Markers in COVID-19 Susceptibility and Severity: A Cross-Sectional Study</h3>
+                <p><strong>Authors:</strong> ARENT, CAMILA O.; PADILHA, ALEX PAULO Z.; BORBA, LAURA A.; DE AZEVEDO CARDOSO, TAIANE; ANDRE, MONIQUE C.; MARTINELLO, NICOLY S.; ROSA, THAYSE; ABELAIRA, HELENA M.; DE MOURA, AIRAM B.; ANDRADE, NATALIA M.; BERTOLLO, AMANDA G.; DE OLIVEIRA, GABRIELA G.; BAGATINI, MARGARETE D.; IGNACIO, ZULEIDE MARIA; QUEVEDO, JOÃO; CERETTA, LUCIANE B.; [cite_start]REUS, GISLAINE Z. [cite: 713, 714, 715, 716]</p>
+                <p><strong>Journal:</strong> Metabolic Syndrome and Related Disorders JCR, V. 1, p. [cite_start]1 [cite: 717]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 717]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>The Impact of Stress from Social Isolation during the COVID-19 Pandemic on Psychiatric Disorders: An Analysis from the Scientific Literature</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; BRAGA, G. C.; TONIN, P. T.; LUZARDO, A. R.; BAGATINI, M. D.; [cite_start]IGNACIO, Z. M. [cite: 718, 719]</p>
+                <p><strong>Journal:</strong> BRAIN SCIENCES JCR, V. 13, p. [cite_start]1414 [cite: 720]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 720]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>*Agaricus blazei Murrill* mushroom: A review on the prevention and treatment of cancer</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; MINGOTI, M. E. D.; PLISSARI, M. E.; BETTI, G.; ROMAN JUNIOR, W. A.; LUZARDO, A. R.; [cite_start]IGNACIO, Z. M. [cite: 721, 722]</p>
+                <p><strong>Journal:</strong> Pharmacological Research Modern Chinese Medicine, v. 2, p. [cite_start]100032 [cite: 723]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 723]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>High levels of extracellular ATP lead to different inflammatory responses in COVID-19 patients according to the severity</h3>
+                <p><strong>Authors:</strong> DA SILVA, GILNEI BRUNO; MANICA, DAIANE; DA SILVA, ALANA PATRÍCIA; KOSVOSKI, GREICY CRISTINE; HANAUER, MARCELI; ASSMANN, CHARLES ELIAS; SIMÕES, JÚLIA LEÃO BATISTA; PILLAT, MICHELI MAINARDI; DE LARA, JESSICA DOTTO; MARAFON, FILOMENA; BERTOLLO, AMANDA GOLLO; MINGOTI, MAIQUELI E. D.; GAVIOLI, JULLYE; RÉUS, GISLAINE ZILLI; DE OLIVEIRA, GABRIELA GONÇALVES; IGNACIO, ZULEIDE MARIA; [cite_start]BAGATINI, MARGARETE DULCE [cite: 724, 725, 726, 731, 732]</p>
+                <p><strong>Journal:</strong> JOURNAL OF MOLECULAR MEDICINE-JMM JCR, v. 1, p. [cite_start]1-18 [cite: 733]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 733]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>COVID-19, Oxidative Stress, and Neuroinflammation in the Depression Route</h3>
+                <p><strong>Authors:</strong> MINGOTI, MAIQUELI EDUARDA DAMA; BERTOLLO, AMANDA GOLLO; SIMÕES, JULIA LEÃO BATISTA; FRANCISCO, GABRIEL ROSSI; BAGATINI, MARGARETE DULCE; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 734, 735]</p>
+                <p><strong>Journal:</strong> JOURNAL OF MOLECULAR NEUROSCIENCE JCR, V. 1, p. [cite_start]1-16 [cite: 736, 737]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 737]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Impact of COVID-19 in the Mental Health in Elderly: Psychological and Biological Updates</h3>
+                <p><strong>Authors:</strong> GROLLI, R. E.; MINGOTI, M. E. D.; BERTOLLO, A. G.; LUZARDO, A. R.; REUS, G. Z.; [cite_start]IGNACIO, Z. M. [cite: 738, 739]</p>
+                <p><strong>Journal:</strong> Molecular Neurobiology JCR, V. 58, p. [cite_start]1905-1916 [cite: 740]</p>
+[cite_start]                <p><strong>Year:</strong> 2021 [cite: 740]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Stress and serum cortisol levels in major depressive disorder: a cross-sectional study</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; GROLLI, R. E.; PLISSARI, M. E.; GASPARIN, V. A.; QUEVEDO, J. L.; REUS, G. Z.; BAGATINI, M. D.; [cite_start]IGNACIO, Z. M. [cite: 741, 742]</p>
+                <p><strong>Journal:</strong> AIMS Neuroscience JCR, V. 7, p. [cite_start]459-469 [cite: 743, 744]</p>
+[cite_start]                <p><strong>Year:</strong> 2020 [cite: 743]</p>
+            </div>
+
+            <div class="list-item">
+                <h3>Prevalência de fatores de risco de suicídio em uma população de idosos no sul de Santa Cataria: Um estudo de base populacional</h3>
+                <p><strong>Authors:</strong> IGNACIO, Z. M.; BEHENCK, J. P.; CORTEZ, T. R.; BERTOLLO, A. G.; JORNADA, L. K.; CERETTA, R. A.; CERETTA, L. B.; QUEVEDO, J. L.; [cite_start]REUS, G. Z. [cite: 745, 746]</p>
+                <p><strong>Journal:</strong> Brazilian Journal of Development, v. 5, p. [cite_start]30285-30297 [cite: 747]</p>
+[cite_start]                <p><strong>Year:</strong> 2019 [cite: 747]</p>
+            </div>
+            
+                <div style="margin-top: 4rem; margin-bottom: 2rem;">
+                    <h3>Books Published/Organized or Editions</h3>
                 </div>
 
-                <div class="card">
-                    <h3>Neuroscience Laboratory Website</h3>
-                    <p>Institutional website for the laboratory with information about research, team, and publications.</p>
-                    <div>
-                        <span class="tag portuguese-tag">Portuguese</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                    </div>
-                    <a href="#">Visit website →</a>
+                <div class="list-item">
+                    <h3>Educação Popular e Saúde: O cuidado em saúde com o uso de plantas medicinais na cultura indígena Kaigang</h3>
+                    <p><strong>Organizers:</strong> IGNACIO, Z. M. (Org.); ONCAY, S. T. V. (Org.); FAGUNDES, J. R. (Org.); **BERTOLLO, A. G. (Org.)**; [cite_start]CADETE, D. (Org.) [cite: 749]</p>
+                    [cite_start]<p><strong>Publisher:</strong> Editora Rede Unida, Porto Alegre, RS, Brazil [cite: 750, 751]</p>
+                    [cite_start]<p><strong>Year:</strong> 2020 [cite: 751]</p>
                 </div>
 
-                <div class="card">
-                    <h3>Data Analysis Platform</h3>
-                    <p>Web tool for analysis and visualization of neuroscientific data with multilingual support.</p>
-                    <div>
-                        <span class="tag">Python</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">D3.js</span>
-                    </div>
-                    <a href="#">Visit website →</a>
+                <div style="margin-top: 4rem; margin-bottom: 2rem;">
+                    <h3>Book Chapters Published</h3>
                 </div>
 
-                <div class="card">
-                    <h3>Neuroscience Blog</h3>
-                    <p>Personal blog in Portuguese with articles and reflections on neuroscience, research, and academic career.</p>
-                    <div>
-                        <span class="tag portuguese-tag">Portuguese</span>
-                        <span class="tag">WordPress</span>
-                        <span class="tag">PHP</span>
-                    </div>
-                    <a href="#">Visit website →</a>
-                </div>
-            </div>
-        </section>
+                <div class="list-item">
+                <h3>Redox impairment in affective disorders and therapeutic potential of phenolic bioactive compounds</h3>
+                <p><strong>Authors:</strong> BERTOLLO, AMANDA GOLLO; DA SILVA, GILNEI BRUNO; da Cunha, Israel Cordeiro Eller; BAGATINI, MARGARETE DULCE; [cite_start]IGNACIO, ZULEIDE MARIA [cite: 759]</p>
+[cite_start]                <p><strong>Book Title:</strong> Natural Molecules in Neuroprotection and Neurotoxicity [cite: 760]</p>
+                <p><strong>Publisher:</strong> Elsevier, 1ed., p. [cite_start]121-145 [cite: 760]</p>
+[cite_start]                <p><strong>Year:</strong> 2024 [cite: 760]</p>
+            </div>
 
-        <section id="activities">
-            <h2>Additional Activities</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Lectures & Presentations</h3>
-                    <p>Presentations at national and international neuroscience conferences.</p>
-                    <p class="meta">Latest: Brazilian Neuroscience Congress 2024</p>
-                </div>
+                <div class="list-item">
+                <h3>Estresse e o eixo hipotálamo-pituitária-adrenal no transtorno depressivo maior – fatores comportamentais e biológicos</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; DALLAGNOL, C.; NARZETTI, R. A.; SANTOS, H. M.; [cite_start]IGNACIO, Z. M. [cite: 761, 762]</p>
+[cite_start]                <p><strong>Book Title:</strong> Ciências da saúde: estudos para manutenção e melhoria da vida [cite: 763, 764]</p>
+                <p><strong>Publisher:</strong> Editora Conhecimento Livre, Piracanjuba, GO, 1ed., v. 3, p. [cite_start]31-53 [cite: 765, 766, 767]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 766]</p>
+            </div>
 
-                <div class="card">
-                    <h3>Mentoring & Supervision</h3>
-                    <p>Supervising undergraduate and master's students in research projects.</p>
-                    <p class="meta">5+ students mentored</p>
-                </div>
+                <div class="list-item">
+                <h3>Chapter 8: Stress and kynurenine-inflammation pathway in major depressive disorder</h3>
+                <p><strong>Authors:</strong> MINGOTI, M. E. D.; BERTOLLO, A. G.; OLIVEIRA, T.; [cite_start]IGNACIO, Z. M. [cite: 768]</p>
+[cite_start]                <p><strong>Book Title:</strong> Neuroinflammation, Gut-Brain Axis and Immunity in Neuropsychiatric Disorders [cite: 770]</p>
+                <p><strong>Publisher:</strong> Springer Nature Singapore Pte Ltd, Singapore Pte, 1ed., v. 1, p. [cite_start]1-540 [cite: 770]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 770]</p>
+            </div>
 
-                <div class="card">
-                    <h3>Peer Review</h3>
-                    <p>Reviewer for international scientific journals in neuroscience.</p>
-                    <p class="meta">10+ articles reviewed</p>
-                </div>
+                <div class="list-item">
+                <h3>COVID-19 E TRANSTORNO DEPRESSIVO MAIOR – ENVOLVIMENTO DA NEUROINFLAMAÇÃO</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; DALLAGNOL, C.; DALLAGNOL, P.; SILVA, B. V.; [cite_start]IGNACIO, Z. M. [cite: 771, 772]</p>
+[cite_start]                <p><strong>Book Title:</strong> Ciências da Saúde e Bem-Estar: Abordagens e saberes interdisciplinares [cite: 775, 776, 777, 778]</p>
+                <p><strong>Publisher:</strong> e-Publicar, Rio de Janeiro, 1ed., v. 2, p. [cite_start]27-43 [cite: 779, 780]</p>
+[cite_start]                <p><strong>Year:</strong> 2023 [cite: 780]</p>
+            </div>
 
-                <div class="card">
-                    <h3>Teaching</h3>
-                    <p>Instructor for classes and workshops on neuroscience, scientific methodology, and data analysis.</p>
-                    <p class="meta">Courses: Neuroanatomy, Computational Neuroscience</p>
-                </div>
+                <div class="list-item">
+                <h3>Ações de enfermagem no enfrentamento da COVID-19: experiência de telemonitoramento</h3>
+                <p><strong>Authors:</strong> SANTOS, J. V. A. L.; BERTOLLO, AMANDA GOLLO; GROLLI, R. E.; SBARDELOTTO, T.; [cite_start]POTRICH, T. [cite: 781, 782]</p>
+[cite_start]                <p><strong>Book Title:</strong> Investigações contemporâneas em ciências da saúde [cite: 783]</p>
+                <p><strong>Publisher:</strong> Dialética, São Paulo, 1ed., v. 3, p. [cite_start]45-59 [cite: 783]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 783]</p>
+            </div>
 
-                <div class="card">
-                    <h3>Outreach & Extension</h3>
-                    <p>Participation in outreach projects for science communication in public schools.</p>
-                    <p class="meta">Project: Brain in Schools</p>
-                </div>
+                <div class="list-item">
+                <h3>População indígena e seus saberes tradicionais no enfrentamento da COVID-19</h3>
+                <p><strong>Authors:</strong> OLIVEIRA, J.; BERTOLLO, A. G.; LUZARDO, A. R.; [cite_start]IGNACIO, Z. M. [cite: 789]</p>
+[cite_start]                <p><strong>Book Title:</strong> Educação Popular: epistemologias, diálogos e saberes [cite: 791]</p>
+                <p><strong>Publisher:</strong> CLAEC editora, Foz do Iguaçu, 1ed., v. 1, p. [cite_start]97-108 [cite: 791]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 791]</p>
+            </div>
 
-                <div class="card">
-                    <h3>International Collaborations</h3>
-                    <p>Collaborations with international laboratories on cognitive neuroscience projects.</p>
-                    <p class="meta">Institutions: MIT, Oxford, Max Planck</p>
-                </div>
-            </div>
-        </section>
+                <div class="list-item">
+                <h3>Efeito da quetiapina na depressão e mecanismos biológicos subjacentes</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; GROLLI, R. E.; GALVAN, A. C.; [cite_start]IGNACIO, Z. M. [cite: 792]</p>
+                <p><strong>Book Title:</strong> MEDICINA: A CIÊNCIA DA VIDA? [cite_start]VOLUME IV [cite: 793]</p>
+                <p><strong>Publisher:</strong> Editora Conhecimento Livre, Piracanjuba, 1ed., v. IV, p. [cite_start]46-58 [cite: 793]</p>
+[cite_start]                <p><strong>Year:</strong> 2022 [cite: 793]</p>
+            </div>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="card" style="max-width: 600px; margin: 0 auto;">
-                <h3>Get in Touch</h3>
-                <p>📧 Email: your.email@university.br</p>
-                <p>🔬 Lattes: <a href="http://lattes.cnpq.br/4584759826189110">Currículo Lattes Link</a></p>
-                <p>📚 Google Scholar: <a href="https://scholar.google.com.br/citations?user=o_uMprMAAAAJ&hl=pt-BR">Google Scholar Profile</a></p>
-                <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/amanda-gollo-bertollo-381ba9240/">Your profile</a></p>
-                <p>🐙 GitHub: <a href="#">Your projects</a></p>
-            </div>
-        </section>
-    </div>
+                <div class="list-item">
+                <h3>A CONTRIBUIÇÃO DO SABER CIENTIFICO EM CONEXÃO COM O SABER ANCESTRAL DA MEDICINA TRADICIONAL</h3>
+                <p><strong>Authors:</strong> IGNACIO, Z. M.; [cite_start]BERTOLLO, A. G. [cite: 794]</p>
+[cite_start]                <p><strong>Book Title:</strong> Educação Popular e Saúde: O cuidado em saúde com o uso de plantas medicinais na cultura indígena Kaigang [cite: 796]</p>
+                <p><strong>Publisher:</strong> 1ed., v. 1, p. [cite_start]43-44 [cite: 797]</p>
+[cite_start]                <p><strong>Year:</strong> 2020 [cite: 797]</p>
+            </div>
 
-    <footer>
-        <p>© 2024 Your Name - All rights reserved</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Developed with dedication to science and technology</p>
-    </footer>
+                <div class="list-item">
+                <h3>AS PRÁTICAS DE USO DAS PLANTAS MEDICINAIS PELOS KAINGANG E A CONTEXTUALIZAÇÃO CIENTIFICA</h3>
+                <p><strong>Authors:</strong> BERTOLLO, A. G.; [cite_start]IGNACIO, Z. M. [cite: 798]</p>
+[cite_start]                <p><strong>Book Title:</strong> Educação Popular e Saúde: O cuidado em saúde com o uso de plantas medicinais na cultura indígena Kaigang [cite: 800]</p>
+                <p><strong>Publisher:</strong> Editora Rede Unida, Porto Alegre, RS, 1ed., v. 1, p. [cite_start]45-87 [cite: 801]</p>
+[cite_start]                <p><strong>Year:</strong> 2020 [cite: 801]</p>
+            </div>
+        </section>
 
-    <script>
-        // Create subtle neural network background
-        const neuronsContainer = document.getElementById('neurons');
-        for (let i = 0; i < 30; i++) {
-            const node = document.createElement('div');
-            node.className = 'neuron-node';
-            node.style.left = Math.random() * 100 + '%';
-            node.style.top = Math.random() * 100 + '%';
-            node.style.animationDelay = Math.random() * 4 + 's';
-            neuronsContainer.appendChild(node);
-        }
+        <section id="websites">
+            <h2>Outreach and Scientific Communication Projects 📢</h2>
+            <div class="card-grid">
+                <div class="card">
+[cite_start]                    <h3>Ciência no Boteco (Science at the Bar) [cite: 520]</h3>
+[cite_start]                    <p>Outreach project aiming to popularize science through dissemination in online events and, post-pandemic, in bars in Chapecó, based on the **"Pint of Science"** model[cite: 522, 523]. [cite_start]It promotes scientific discussions in relaxed environments and shares research from UFFS and partner institutions[cite: 524, 525, 527].</p>
+                    <div>
+                        <span class="tag portuguese-tag">Outreach</span>
+                        <span class="tag">Scientific Communication</span>
+[cite_start]                        <span class="tag">Active (2020-Present) [cite: 519, 529]</span>
+                    </div>
+                </div>
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-    </script>
+                <div class="card">
+[cite_start]                    <h3>Liga Acadêmica de Neurociências - LANEU (Academic Neuroscience League) [cite: 534]</h3>
+[cite_start]                    <p>A student organization at UFFS aiming to stimulate teaching, research, and outreach in Neuroscience[cite: 535, 536]. [cite_start]Activities included studies, discussions, research, and extension activities in neurological/psychiatric patient settings[cite: 539, 540, 541].</p>
+                    <div>
+                        <span class="tag portuguese-tag">Education and Research</span>
+[cite_start]                        <span class="tag">Completed (2019-2024) [cite: 533, 548]</span>
+                    </div>
+                </div>
+
+                <div class="card">
+[cite_start]                    <h3>Technological Innovation in Post-COVID-19 Health [cite: 360]</h3>
+[cite_start]                    <p>Evaluation of the effectiveness of a prototype (**Pulmonary Rehabilitation COVID-19 Good Shepherd - RPC-19**) on respiratory function, physical fitness, and quality of life in people recovered from COVID-19[cite: 362, 374]. [cite_start]The project uses an Android application (App) for instruction and asynchronous user/team interaction[cite: 365, 366].</p>
+                    <div>
+                        <span class="tag portuguese-tag">Clinical Research</span>
+[cite_start]                        <span class="tag">Active (2021-Present) [cite: 375, 377, 382]</span>
+                    </div>
+                </div>
+
+                <div class="card">
+[cite_start]                    <h3>The Science Goes to the Bar (A Ciência Vai ao Boteco) [cite: 552]</h3>
+[cite_start]                    <p>Outreach project that aimed to popularly disseminate science in non-academic environments such as bars, restaurants, and cafes[cite: 553]. [cite_start]It featured lectures on scientific projects followed by relaxed discussions with the public[cite: 556, 557].</p>
+                    <div>
+                        <span class="tag portuguese-tag">Outreach</span>
+[cite_start]                        <span class="tag">Completed (2019-2020) [cite: 551, 559]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities">
+            <h2>Academic and Professional Activities 🎓</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Academic Background</h3>
+[cite_start]                    <p><strong>PhD (In Progress):</strong> Neurosciences - Federal University of Santa Catarina (UFSC)[cite: 5].</p>
+[cite_start]                    <p><strong>Master's (2022-2024):</strong> Biomedical Sciences - Federal University of Southern Frontier (UFFS)[cite: 24, 25, 26].</p>
+[cite_start]                    <p><strong>Specialization (2022-2023):</strong> Nursing in Primary Care with Emphasis on the Family Health Strategy - FaHol[cite: 30, 32].</p>
+[cite_start]                    <p><strong>Undergraduate (2017-2022):</strong> Nursing - UFFS[cite: 37, 38].</p>
+                </div>
+
+                <div class="card">
+[cite_start]                    <h3>Journal Reviewer (Selection) [cite: 561]</h3>
+                        <p>Currently reviewing for major international journals:</p>
+                        <ul>
+                            [cite_start]<li>**Cells** (2025-Present) [cite: 562, 564]</li>
+                            [cite_start]<li>**Brain Sciences** (2025-Present) [cite: 565, 566]</li>
+                            [cite_start]<li>**Molecular Neurobiology** (2023-Present) [cite: 599, 600]</li>
+                            [cite_start]<li>**Frontiers in Pharmacology** (2023-Present) [cite: 601, 602]</li>
+                            [cite_start]<li>**Progress in Neuropsychopharmacology & Biological Psychiatry** (2024-Present) [cite: 584, 587, 588]</li>
+                        </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Advisory and Scholarships</h3>
+[cite_start]                    <p>Advisor for an undergraduate thesis in Nursing (Maiqueli Eduarda Dama Mingoti, 2023)[cite: 1481, 1482, 1483].</p>
+[cite_start]                    <p>Scholarship recipient from **FAPESC** (2022-Present)[cite: 29, 152, 154, 155].</p>
+                    [cite_start]<p>Scholarship recipient from **CAPES** (2022)[cite: 161, 163, 164].</p>
+                    [cite_start]<p>Scientific Initiation Scholarship recipient (2019-2022)[cite: 166, 170, 174, 177].</p>
+                </div>
+
+                <div class="card">
+[cite_start]                    <h3>Language Proficiency [cite: 613]</h3>
+[cite_start]                    <p><strong>Portuguese:</strong> Understands Well, Speaks Well, Reads Well, Writes Well[cite: 614, 620].</p>
+[cite_start]                    <p><strong>English:</strong> Understands Well, Speaks Well, Reads Well, Writes Well[cite: 615, 621].</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact and Identification 🆔</h2>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <h3>Identification Information</h3>
+[cite_start]                <p><strong>Full Name:</strong> Amanda Gollo Bertollo [cite: 11]</p>
+[cite_start]                <p>🌐 **Lattes ID:** 4584759826189110 [cite: 2]</p>
+[cite_start]                <p>🔬 **Lattes URL:** <a href="http://lattes.cnpq.br/4584759826189110">http://lattes.cnpq.br/4584759826189110</a> [cite: 2, 16]</p>
+[cite_start]                <p>📚 **Orcid ID:** <a href="https://orcid.org/0000-0003-0160-4079">https://orcid.org/0000-0003-0160-4079</a> [cite: 18, 19]</p>
+[cite_start]                <p>🇧🇷 **Country / Nationality:** Brazil [cite: 20, 21, 22]</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Amanda Gollo Bertollo - All rights reserved</p>
+[cite_start]        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Data extracted from Currículo Lattes on 26/11/2025 at 14:25:08 [cite: 1484]</p>
+    </footer>
+
+    <script>
+        // Create subtle neural network background
+        const neuronsContainer = document.getElementById('neurons');
+        for (let i = 0; i < 30; i++) {
+            const node = document.createElement('div');
+            node.className = 'neuron-node';
+            node.style.left = Math.random() * 100 + '%';
+            node.style.top = Math.random() * 100 + '%';
+            node.style.animationDelay = Math.random() * 4 + 's';
+            neuronsContainer.appendChild(node);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
 </html>
